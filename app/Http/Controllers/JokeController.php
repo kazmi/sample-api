@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
+use App\Joke;
 use App\Http\Requests;
+use Illuminate\Http\Request;
 
 class JokeController extends Controller
 {
@@ -15,7 +15,8 @@ class JokeController extends Controller
      */
     public function index()
     {
-        //
+        $joke = Joke::latest()->get();
+        return response()->json($joke);
     }
 
     /**
